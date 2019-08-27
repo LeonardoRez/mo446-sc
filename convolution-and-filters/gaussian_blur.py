@@ -1,6 +1,3 @@
-import numpy as np
-import cv2
-
 def pascal(n):
     k = np.zeros((n,n))
     k[0,0] = 1
@@ -13,17 +10,10 @@ def pascal(n):
 
 def gausian_blur(img, size):
     k = pascal(size) # pascal vector of size=size
-    k = (k*k.T)/((2**(size-1))**2) #the real kernel divided by size
+    k = (k*k.T)/((2**(size-1))**2) #the real kernel divided by sum of all lenghts
 
     result = cv2.filter2D(img,-1,k)
 
-    cv2.imwrite('gausian-'+str(size)+'.png', result)
+    return result
 
 
-
-img = cv2.imread('baboon.png',0)
-gausian_blur(img, 3)
-gausian_blur(img, 5)
-gausian_blur(img, 7)
-gausian_blur(img, 9)
-gausian_blur(img, 11)

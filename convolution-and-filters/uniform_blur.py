@@ -1,5 +1,3 @@
-import numpy as np
-
 def blur(img, size):
     result = img.copy()
     
@@ -21,6 +19,6 @@ def blur(img, size):
                         continue
                     soma += kernel[i,j] * img[y-i,x-j]
                     q+=1
-            # result pixel is sum of values of neighbourhood divided by theyr quantity 
+            # result pixel is sum of values of neighbourhood divided by their quantity 
             result[y,x] = int(soma/q)
     return result
