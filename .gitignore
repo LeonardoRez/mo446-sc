@@ -1,0 +1,11 @@
+#virtualenv
+/virtual/*
+
+#vim temp files
+*.swp
+
+#temp files for test
+
+*test*
+**/*test*
+
